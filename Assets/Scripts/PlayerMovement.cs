@@ -57,17 +57,27 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        this.Rotate();
+        LookAtMouse();
     }
 
 
-
-    private void Rotate()
+    private void LookAtMouse()
     {
-        if (movement != Vector3.zero)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 720 * Time.deltaTime);
+            Vector3 target = hit.point;
+            target.y = transform.position.y; // Mantém rotação só no eixo Y (horizontal)
+
+            Vector3 direction = (target - transform.position).normalized;
+
+            if (direction != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+            }
         }
     }
 
