@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         LookAtMouse();
+        SetAxisAnimaor();
     }
 
 
@@ -79,6 +80,15 @@ public class PlayerMovement : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
             }
         }
+    }
+
+    void SetAxisAnimaor()
+    {
+        //Set horizontal and vertical based on player forward direction
+        Vector3 localMovement = transform.InverseTransformDirection(movement);
+
+        animator.SetFloat("horizontal", localMovement.x);
+        animator.SetFloat("vertical", localMovement.z);
     }
 
     void Move()
