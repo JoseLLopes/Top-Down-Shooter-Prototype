@@ -1,13 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IObjectPoolable
 {
     public int damage = 10; // Damage dealt by the projectile
     public ForceType forceType; // Type of force applied to the projectile
     [SerializeField] GameObject explosionHitParticle;
 
+
+    [Header("Object Pooling")]
+
+    [SerializeField] int poolSize = 10; // Size of the object pool
+    public int PoolSize { get => poolSize; }
+    [SerializeField] string tag; // Tag for the object pool
+    public string Tag { get => tag; }
+
+    public bool IsInUse { get ; set ; }
+
+    public void Release()
+    {
+        IsInUse = false;
+        gameObject.SetActive(false);
+        gameObject.transform.position = Vector3.zero;
+        gameObject.transform.rotation = Quaternion.identity;
+    }
+
+    public void Use()
+    {
+        IsInUse = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
