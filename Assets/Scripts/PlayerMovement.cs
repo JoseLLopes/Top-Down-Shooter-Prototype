@@ -48,10 +48,14 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ShootTime()
     {
         yield return new WaitForSeconds(0.5f);
-        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject bullet = ObjectPoolerManager.Instance.InstantiatePoolObject(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        if (bullet == null)
+        {
+            Debug.LogError("Bullet not instantiated");
+            yield break;
+        }
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         bulletRb.AddForce(transform.forward * 20f, ForceMode.Impulse);
-        Destroy(bullet, 2f); // Destroy the bullet after 2 seconds
     }
 
     void FixedUpdate()

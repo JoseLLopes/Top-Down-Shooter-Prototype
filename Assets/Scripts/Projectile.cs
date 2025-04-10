@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour, IObjectPoolable
     public int damage = 10; // Damage dealt by the projectile
     public ForceType forceType; // Type of force applied to the projectile
     [SerializeField] GameObject explosionHitParticle;
-
+    [SerializeField] Rigidbody rb; // Rigidbody component of the projectile
 
     [Header("Object Pooling")]
 
@@ -22,10 +22,8 @@ public class Projectile : MonoBehaviour, IObjectPoolable
 
     public void Release()
     {
+        rb.velocity = Vector3.zero; // Reset velocity
         IsInUse = false;
-        gameObject.SetActive(false);
-        gameObject.transform.position = Vector3.zero;
-        gameObject.transform.rotation = Quaternion.identity;
     }
 
     public void Use()
@@ -38,13 +36,14 @@ public class Projectile : MonoBehaviour, IObjectPoolable
         if(other.CompareTag("Terrain"))
         {
             Instantiate(explosionHitParticle, transform.position, Quaternion.identity);
+            ObjectPoolerManager.Instance.ReleasePoolObject(gameObject);
         }
         if(other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             damageable.TakeDamage(damage, forceType);
+            ObjectPoolerManager.Instance.ReleasePoolObject(gameObject);
         }
 
-        Destroy(gameObject);
     }
 }
 

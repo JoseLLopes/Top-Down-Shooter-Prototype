@@ -9,6 +9,8 @@ public class Ai_Movement : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform player;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject attackHitboxPrefab;
+    [SerializeField] Transform attackHitboxSpawnPoint;
     [SerializeField] float speed = 3.5f;
     [SerializeField] float stoppingDistance = 2f;
     [SerializeField] float rotationSpeed = 700f;
@@ -66,5 +68,10 @@ public class Ai_Movement : MonoBehaviour
         Debug.Log("Attacking player!");
         LookAtPlayer();
         animator.SetTrigger("Attack");
+    }
+
+    public void OnAttackImpact()
+    {
+        var attackObject = ObjectPoolerManager.Instance.InstantiatePoolObject(attackHitboxPrefab, attackHitboxSpawnPoint.position, attackHitboxSpawnPoint.rotation);
     }
 }
