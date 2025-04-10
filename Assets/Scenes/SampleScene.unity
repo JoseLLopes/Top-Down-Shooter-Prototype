@@ -1808,6 +1808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  animator: {fileID: 0}
 --- !u!136 &1008523965
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3189,11 +3190,31 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1914717223}
   m_SourcePrefab: {fileID: 100100000, guid: 4c9e28bdd82a67d4bbbbbec90df3e3f2, type: 3}
+--- !u!1 &1478559688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8638168919331523483, guid: 2ba30af14db85f344a0b75a14041f6e0, type: 3}
+  m_PrefabInstance: {fileID: 5216619483634148375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1478559692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993256690121155224, guid: 2ba30af14db85f344a0b75a14041f6e0, type: 3}
   m_PrefabInstance: {fileID: 5216619483634148375}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1478559693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478559688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9b4e4c20cbfe248b8ad76066392a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
+  animator: {fileID: 2034624836}
 --- !u!4 &1501486214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e57c0629dceda7a4c8c9a71a685128ef, type: 3}
@@ -3772,7 +3793,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8189179709687727534, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2038504946}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c67ed6c086451b4db54ac4d24b626bb, type: 3}
 --- !u!4 &1567373270 stripped
@@ -3790,6 +3814,74 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c9e28bdd82a67d4bbbbbec90df3e3f2, type: 3}
   m_PrefabInstance: {fileID: 1918733727}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1588281339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588281340}
+  - component: {fileID: 1588281342}
+  - component: {fileID: 1588281341}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1588281340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588281339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.09}
+  m_LocalScale: {x: 1, y: 1, z: 0.43998513}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2038504946}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588281341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588281339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28aab6bbeba37d4ebcb5cffb71def43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
+  forceType: 0
+--- !u!65 &1588281342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588281339}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1593806765 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8927273777459958982, guid: 11b261bfa1459d54891020119dd6ca8d, type: 3}
@@ -4602,6 +4694,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.882027, y: 5.490042, z: 0.5334227}
   m_Center: {x: 0.24418652, y: 2.7444708, z: -0.000000074505806}
+--- !u!95 &2034624836 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 349004566912972769, guid: 2ba30af14db85f344a0b75a14041f6e0, type: 3}
+  m_PrefabInstance: {fileID: 5216619483634148375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2038504945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038504946}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2038504946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038504945}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.015, z: 0.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1588281340}
+  m_Father: {fileID: 1567373270}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2075225690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c9e28bdd82a67d4bbbbbec90df3e3f2, type: 3}
@@ -5150,7 +5279,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8638168919331523483, guid: 2ba30af14db85f344a0b75a14041f6e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1478559693}
   m_SourcePrefab: {fileID: 100100000, guid: 2ba30af14db85f344a0b75a14041f6e0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
