@@ -69,4 +69,4 @@ MonoBehaviour:
   damageAmount: 10
   forceType: 0
   poolSize: 10
-  tag: normalAttack
+  tag: normal_attack

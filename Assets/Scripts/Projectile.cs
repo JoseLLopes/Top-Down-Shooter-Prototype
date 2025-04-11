@@ -15,8 +15,8 @@ public class Projectile : MonoBehaviour, IObjectPoolable
 
     [SerializeField] int poolSize = 10; // Size of the object pool
     public int PoolSize { get => poolSize; }
-    [SerializeField] string tag; // Tag for the object pool
-    public string Tag { get => tag; }
+    [SerializeField] string poolTag; // Tag for the object pool
+    public string Tag { get => poolTag; }
 
     public bool IsInUse { get ; set ; }
 
@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour, IObjectPoolable
     {
         if(other.CompareTag("Terrain"))
         {
-            Instantiate(explosionHitParticle, transform.position, Quaternion.identity);
+            ObjectPoolerManager.Instance.InstantiatePoolObject(explosionHitParticle, transform.position, Quaternion.identity);
             ObjectPoolerManager.Instance.ReleasePoolObject(gameObject);
         }
         if(other.TryGetComponent<IDamageable>(out IDamageable damageable))

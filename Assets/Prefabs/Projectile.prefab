@@ -100,7 +100,7 @@ MonoBehaviour:
   explosionHitParticle: {fileID: 8158301740447479584, guid: 5cebd269b978ad548845abd265e13681, type: 3}
   rb: {fileID: 4397294494392589640}
   poolSize: 10
-  tag: fire_spell
+  poolTag: fire_spell
 --- !u!1001 &2818523992638061995
 PrefabInstance:
   m_ObjectHideFlags: 0
